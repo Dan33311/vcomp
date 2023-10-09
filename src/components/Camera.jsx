@@ -26,7 +26,7 @@ const Camera = () => {
       // document.body.appendChild(link)
       // link.click()
       // document.body.removeChild(link)
-      const storageRef = ref(storage, 'test-name')
+      const storageRef = ref(storage, 'test-name-2')
       uploadString(storageRef, imageSrc, 'data_url').then((snapshot) => {
         console.log('Uploaded a data_url string!');
       });
