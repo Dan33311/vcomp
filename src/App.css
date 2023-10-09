@@ -32,8 +32,21 @@
   height: 20px;
   margin-right: 9px;
 }
+.capture-b svg {
+  margin-bottom: -4px;
+}
+
+.camera svg {
+  height: 20px;
+  margin-right: 9px;
+}
 
 .download-b {
   display: flex;
   width: fit-content;
+}
+
+.no-image {
+  width: 320px;
+  padding: 9px;
 }
