@@ -4,6 +4,7 @@ import DownloadIcon from './DownloadIcon'
 import CaptureIcon from './CaptureIcon'
 import { ref, uploadString } from 'firebase/storage'
 import { storage } from '../utils/firebase'
+import { v4 } from 'uuid'
 
 const Camera = () => {
   const webcamRef = useRef(null)
@@ -26,7 +27,7 @@ const Camera = () => {
       // document.body.appendChild(link)
       // link.click()
       // document.body.removeChild(link)
-      const storageRef = ref(storage, 'test-name-4')
+      const storageRef = ref(storage, v4())
       uploadString(storageRef, imageSrc, 'data_url').then((snapshot) => {
         console.log('Uploaded a data_url string!');
       });
