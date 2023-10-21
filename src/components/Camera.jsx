@@ -5,10 +5,12 @@ import CaptureIcon from './CaptureIcon'
 import { ref, uploadString } from 'firebase/storage'
 import { storage } from '../utils/firebase'
 import { v4 } from 'uuid'
+import { ReactImageFilter } from 'react-image-filter'
 
 const Camera = () => {
   const webcamRef = useRef(null)
   const [imageSrc, setImageSrc] = useState(null)
+  const [filter, setFilter] = useState("")
 
 
   const capture = () => {
@@ -34,6 +36,10 @@ const Camera = () => {
     }
   }
 
+  const handleFilterChange = (e) => {
+    setFilter(e.target.value)
+  }
+
 
   return (
     <>
@@ -52,6 +58,25 @@ const Camera = () => {
             <button className='download-b' onClick={handleDownload}><DownloadIcon />Download Image</button>
           </div>
         ) : <img className='no-image' src='https://jawahar-book-centre.com/wp-content/uploads/2020/10/image-not-available.jpg' />}
+        <div>
+          <h2>Image Filters and effects</h2>
+          <div>
+            <label>Choose a filter: </label>
+            <select value={filter} onChange={handleFilterChange}>
+              <option value="">None</option>
+              <option value="grayscale">Grayscale</option>
+              <option value="sepia">Sepia</option>
+              <option value="blur">Blur</option>
+              <option value="brightness">Brightness</option>
+              <option value="contrast">Contrast</option>
+            </select>
+          </div>
+          <div>
+            <ReactImageFilter filter={filter}>
+              <img src={imageSrc} alt="" />
+            </ReactImageFilter>
+          </div>
+        </div>
       </div>
     </>
   )
