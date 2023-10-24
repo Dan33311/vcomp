@@ -24,3 +24,7 @@ $ npm run dev
   - (Data URL string) storege config 
 * use dotenv to store keys and values to the Firebase configuration
 * Add UUID in order to set a different name to each screenshot
+* Create a Select which apply filters to the image
+TODO: When download the image: The image are storage, but the applied filter is not applied.
+TODO: a carrousel, it show us a preview miniature of the image with the filter applied https://www.cssfilters.co/
+TODO: capture photo or upload photo
